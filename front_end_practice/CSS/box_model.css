@@ -1,0 +1,23 @@
+/* *{
+    margin: 0px;
+    padding: 0px;
+    font-size: 40px;
+    box-sizing: border-box;
+} */
+.box1{
+    background-color: aqua;
+    padding: 10px;
+    border: 20px solid yellowgreen;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+}
+
+.box2{
+    background-color: purple;
+    padding: 10px;
+    border: 21px solid yellowgreen;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+} 

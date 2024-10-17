@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h1>Complex form</h1>
+        <br>
+        <fieldset>
+            <legend>Personal information</legend>
+            <label for="name">name</label>
+            <input type="text" name="name" id="name">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="Phone">Phone</label>
+            <input type="number" name="Phone" id="Phone">
+            <label for="DOB">Date of birth</label>
+            <input type="date" name="DOB" id="DOB">
+            <br>
+            <label for="Gender">Gender</label>
+            <input type="radio" name="Gender" id="Male">
+            <label for="Male">Male</label>
+            <input type="radio" name="Gender" id="Female">
+            <label for="Female">Female</label>
+            <label for="ct">Country</label>
+            <select name="Country" id="ct">
+                <option value="india">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+            </select>
+        </fieldset><br>
+        <fieldset>
+            <legend>
+                Address Street <input type="text"> City <input type="text"> State <input type="text"> Zip Code <input type="text">
+            </legend>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Other information</legend>
+            <label for="cmt">Comments</label>
+            <textarea name="Comments" id="cmt" cols="10" rows="5"></textarea>
+            <label for="iagree">I agree to the terms of service </label> 
+            <input type="checkbox" name="iagree" id="iagree">
+        </fieldset>
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>
