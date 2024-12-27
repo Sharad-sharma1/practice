@@ -1,6 +1,6 @@
 from threading import Thread
 import time
-video_list = ['beatboxing', 'caisthenics', 'gym', 'coding']
+video_list = ['beatboxing', 'calisthenics', 'gym', 'coding']
 class ExtendThreadClass(Thread):
     def __init__(self, child_var):
         Thread.__init__(self)
@@ -12,13 +12,15 @@ class ExtendThreadClass(Thread):
             print('-=-=-=-=-=-=', self.child)
         for i in video_list:
             print('---**** video started uploading ***----', i)
-            time.sleep(2)
+            # time.sleep(2)
             print('---**** video uploaded ***----', i)
         self.total = a+b
 obj1 = ExtendThreadClass(child_var=False)
 obj1.start()
 # time.sleep(9)
 for i in range(len(video_list)):
-    time.sleep(2)
+    # time.sleep()
     print('-----copyright checking-----', i)
+
+time.sleep(10)
 print('---------totallllllllllll--------------------', obj1.total)

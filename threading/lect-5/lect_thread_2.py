@@ -11,11 +11,13 @@ class TestThread:
         print('777777', current_thread())
         for i in range(n):
             print('cccccccc')
+
     @staticmethod
     def method_inside_class_class_static(n):
         print('k', current_thread())
         for i in range(n):
             print('aaaaaaaa')
+
 cls1 = TestThread()
 obj1 = Thread(target=cls1.method_inside_class, args=(5,))
 obj2 = Thread(target=TestThread.method_inside_class_class_method, args=(5,))
@@ -25,7 +27,6 @@ obj2.start()
 obj3.start()
 for i in range(5):
     print('------------tttt------------')
-
 
 # def fun(n, m, j):
     
