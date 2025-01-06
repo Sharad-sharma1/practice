@@ -7,19 +7,18 @@
     <style>
         .container{
             background-color: rgb(2, 93, 93);
-            height: 500px;
             border: 3px solid black;
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
-            /* align-items: center;   */
+            height: 800px;
             align-content: center;
+            justify-content: start;
+            align-items: start;
+            /* flex-wrap: wrap; */
+            /* align-items: center;   */
             /* justify-items: center; */
-            justify-content: center;
-            /* align-items: stretch; */
             /* flex-direction: column; */
             /* justify-content: space-evenly; */
-            /* justify-content: end; */
             /* flex-direction: row-reverse; */
             /* flex-direction: column-reverse; */
             /* flex-wrap: wrap; */
@@ -30,32 +29,46 @@
 
         }
         .box{
-            height: 80px;
-            width: 80px;
+            /* height: 120px;
+            width: 120px; */
             border: 2px solid black;
             margin: 2px;
             padding: 2px;
         }
         #box1{
             background-color: lightseagreen;
+            /* flex-shrink: 3; */
+            
+            /* flex-grow: 1; */
+            /* flex: 6 1 auto; */
         }        
         #box2{
             background-color: lightcoral;
+            /* flex-grow: 1; */
+            align-self: center;
+            /* flex: 1 4 auto; */
         }    
         #box3{
             background-color: limegreen;
+            /* flex-grow: 4; */
+            align-self: end;
+            /* flex: 1 1 auto; */
         }    
         #box4{
             background-color: lightgoldenrodyellow;
+            /* order: -1; */
+            /* flex-grow: 1; */
+            /* flex: 1 1 auto; */
         }    
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="box" id="box1"></div>
-        <div class="box" id="box2"></div>
-        <div class="box" id="box3"></div>
-        <div class="box" id="box4"></div>
+        <div class="box" id="box1">box1</div>
+        <div class="box" id="box2">box2</div>
+        <div class="box" id="box3">box3</div>
+        <div class="box" id="box4">box4</div>
     </div>
 </body>
 </html>
+
