@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --primary: 400px;
+        }
+        .container{
+            background-color: tomato;
+            border: 2px solid black;
+            display: flex;
+            height: 700px;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            /* --primary: 400px; */
+            border: 2px solid rgb(65, 44, 44);
+            /* height: 300px; */
+            height: var(--primary);
+            width: 300px;
+            background-color: antiquewhite;
+            padding: 10px;
+            /* box-shadow: -10px -10px 7px grey, 20px 20px 7px springgreen; */
+            /* box-shadow: inset -10px -10px 7px grey */
+        }
+        #txt{
+            /* text-shadow: 5px 5px 10px black; */
+            text-shadow: rgb(208, 20, 20) 5px 5px 10px, yellow 10px 10px 10px, blue 15px 15px 10px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Welcome Tpo sharad's world</h1>
+            <p id="txt">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Quia quibusdam non ipsam vero voluptates, fuga ad ipsum, esse ea at dignissimos.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

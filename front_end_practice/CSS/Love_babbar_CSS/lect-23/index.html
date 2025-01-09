@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: antiquewhite;
+            height: 100vh;
+            width: 100vw;
+            border: 3px solid black;
+            padding: 7px;
+        }
+        .box{
+            background-color: yellowgreen;
+            height: 60px;
+            width: 300px;
+            border: 1px solid darkgreen;
+            position: relative;
+            border-radius: 3%;    
+            animation-name: rightMove;     
+            animation-delay: 1s;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;   
+            /* animation-timing-function: cubic-bezier(0.3,-0.1, 0.39, -0.1); */
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            animation-play-state: running;
+        }
+        @keyframes rightMove {
+            from {
+                top: 0;
+                left: 0;
+            } 
+            to {
+                top: 0;
+                left: 1350px;
+            } 
+
+        }
+        .box2{
+            background-color: yellowgreen;
+            height: 60px;
+            width: 300px;
+            border: 1px solid darkgreen;
+            position: relative;
+            border-radius: 3%;
+            animation-name: leftMove;     
+            animation-delay: 1s;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;   
+            /* animation-timing-function: cubic-bezier(0.3,-0.1, 0.39, -0.1); */
+            animation-timing-function: ease-in;
+            animation-direction: alternate;
+            animation-play-state: running;
+        }
+        @keyframes leftMove {
+            from {
+                top: 580px;
+                left: 1350px;
+            } 
+            to {
+                top: 580px;
+                left:0;
+            } 
+
+        }
+        .circle{
+            background-color: yellowgreen;
+            height: 50px;
+            width: 50px;
+            border: 1px solid darkgreen;
+            position: relative;
+            border-radius: 100%;
+            animation-name: cirMove;     
+            animation-delay: 1s;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;   
+            animation-timing-function: ease-in-out;
+            animation-direction: alternate;
+            animation-play-state: running;
+            margin: 10px;
+            top: 30%;
+            left: 50%;
+        }
+        @keyframes cirMove {
+            0%{
+               top: 1%;
+               left: 5%; 
+            }
+            30%{
+               top: 5%;
+               left: 90%; 
+            }
+            60%{
+               top: 70%;
+               left: 10%; 
+            }
+            100%{
+               top: 75%;
+               left: 90%; 
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="circle"></div>
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
