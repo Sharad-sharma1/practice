@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+
+        }
+        .box1, .box2, .box3{
+            height: 200px;
+            width: 200px;
+            background-color: aquamarine;
+            border: 2px solid black;
+        }
+        @media (min-width:300px) and (max-width:800px) {
+            .box1{
+                background-color: brown;
+            }
+        }
+        @media (max-width:500px) {
+            .container{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            hello jiiiiiiii
+        </div>
+        <div class="box2">
+            hello jiiiiiiii
+        </div>
+        <div class="box3">
+            hello jiiiiiiii
+        </div>
+    </div>
+</body>
+</html>
