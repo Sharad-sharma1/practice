@@ -1,0 +1,41 @@
+.container{
+    height: 100%;
+    width: 100%;
+    min-height: 950px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+.card{
+    height: 500px;
+    width: 300px;
+    background: whitesmoke;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* gap: 0.9px; */
+    padding: 10px;
+}
+.card img{
+    border-radius: 5%;
+    /* position: relative;
+    overflow: hidden; */
+}
+.blue{
+    opacity: 70%;
+    height: 300px;
+    border-radius:5%;
+    width: 300px;
+    display: flex;
+    background: rgb(2, 2, 110);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.card p{
+    text-align: center;
+}

@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+        height: 100%;
+        width: 100%;
+        overflow-x: none;
+}
+.navContainer{
+    width: 100vw;
+    background-color: #000000;
+    background-image: linear-gradient(160deg, #000000 0%, #80D0C7 100%);
+}
+/* #navbar{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; 
+} */
+#navList{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#navlogo{
+    font-size: 2.5rem;
+    color: aliceblue;
+}
+#navlist{
+    display: flex;
+    gap: 20px;
+}
+a{
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+body{
+
+    background-color: #e2e5e8;
+    background-image: linear-gradient(160deg, #e2e5e8 0%, #ffffff 100%);
+
+}
+.footer{
+   width: 100%;
+}
+
+.footerBox{
+    text-align: center;
+    min-height: 40px;
+    width: 100vw;
+    background-color: #000000;
+    background-image: linear-gradient(160deg, #000000 0%, #80D0C7 100%);
+}
+.footerBox p{
+    color: aliceblue;
+    font-size: 1.8rem;
+}
+.contentBox{
+    width: 80%;
+    margin: auto;
+    background: whitesmoke;
+    box-shadow: 0px 0px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.Item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.rightbox img{
+    height: 300px;
+    width: 300px;
+    border-radius: 10%;
+}
+
+.leftbox{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.rightbox{
+    position: relative;
+    overflow: hidden;
+    border-radius: 10%;
+    transition: all 0.6s linear 0s;
+    box-shadow: 0px 0px 14px;
+    
+}
+.rightbox:hover{
+    transform: scale(1.1);
+}
+.rightbox .Overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(48, 43, 43, 0.676);
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.6s linear 0s;
+}
+.rightbox .Overlay:hover{
+    opacity: 1;
+}
+.rightbox .Overlay span{
+    color: #ffffff;
+    font-size: 1rem;
+}
