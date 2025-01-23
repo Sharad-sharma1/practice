@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    width: 100%;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    background: rgb(247, 151, 167);
+    display: grid;
+    /* column-gap: 1px;
+    row-gap: 1px; */
+    gap: 1rem;
+    padding: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 200px);
+    border: 2px solid rgb(62, 5, 62);
+
+    /* for below both we have short hand */
+    place-items: end center;
+    /* justify-items: center;
+    align-items: center; */
+}
+.item{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(21, 21, 127);
+    border: 2px solid whitesmoke;
+    color: azure;
+    /* text-align: center; */
+    /* font-size: 1.1rem; */
+    /* align-self: end; */
+    /* align-self: start;
+    justify-self: center; */
+
+    /* if u want to use below need comment hieght and width */
+    /* justify-items: stretch; */
+
+}
