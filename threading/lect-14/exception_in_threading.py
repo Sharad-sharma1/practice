@@ -13,5 +13,7 @@ threading.excepthook=exceptt
 chil = threading.Thread(target=ok)
 chil.start()
 chil.join()
+
+
 for i in [1,2,3,4]:
     print(i)
