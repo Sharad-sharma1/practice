@@ -390,7 +390,58 @@ color: var(--light-gray);
 
 @media screen and (min-width: 768px){
     .card-section-grid{grid-template-columns: repeat(2, 1fr);}
-
 }
 
 /* card section end */
+
+/* newsletter section start */
+.newsletter{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.newsletter-grid{
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    gap: 24px;
+}
+
+.nw-grid-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px; 
+    border: 1px solid var(--gray);
+    border-bottom:1px solid #2563eb;
+    padding: 15px;
+    border-radius: 7px;
+    transition: all 0.6s linear 0s;
+    box-shadow: 0 3px 6px rgba(51, 109, 235, 0.16), 0 3px 6px rgba(27, 47, 234, 0.23);
+}
+.nw-grid-div:hover{
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(51, 109, 235, 0.16), 0 6px 6px rgba(10, 22, 134, 0.23);
+}
+.nw-grid-div-img{
+    height: 5rem;
+    width: 5rem;
+}
+
+.nw-grid-div-name{
+    color: #2563eb;
+}
+
+@media screen and (min-width: 768px){
+    .newsletter-grid{grid-template-columns: repeat(3, 1fr);}
+}
+
+
+
+/* newsletter section end */
