@@ -17,8 +17,8 @@ server='smtp.office365.com'
 # to_email = ["swardaj@pharmarack.com","amit.kaul@pharmarack.com", "Vishakha.shah@pharmarack.com","avdhut.ghatage@pharmarack.com"]
 # cc_email = ["aarifp@pharmarack.com", "syedm@pharmarack.com", "Sujatag@pharmarack.com", "Hiren.Karnani@pharmarack.com", "Surya.Choudhury@pharmarack.com", "suryas@pharmarack.com", "ramasamy.ramar@pharmarack.com", "shrutika.wagh@pharmarack.com", "poojag@pharmarack.com", "isha.rathi@pharmarack.com", "Dhruv.Gulati@pharmarack.com"]
 
-to_email = ["avdhut.ghatage@pharmarack.com"]
-cc_email = ["sharad.sharma@pharmarack.com"]
+to_email = ["swardaj@pharmarack.com", "aarifp@pharmarack.com"]
+cc_email = ["sharad.sharma@pharmarack.com", "avdhut.ghatage@pharmarack.com", "animesh.oze@pharmarack.com"]
 
 # "swardaj@pharmarack.com","amit.kaul@pharmarack.com", "Vishakha.shah@pharmarack.com"
 # "aarifp@pharmarack.com", "syedm@pharmarack.com", "Sujatag@pharmarack.com", "Hiren.Karnani@pharmarack.com", "Surya.Choudhury@pharmarack.com", "suryas@pharmarack.com", "ramasamy.ramar@pharmarack.com", "shrutika.wagh@pharmarack.com", "poojag@pharmarack.com", "isha.rathi@pharmarack.com", "Dhruv.Gulati@pharmarack.com"
@@ -60,33 +60,39 @@ def format_number(value):
 
 # Function to generate an HTML table from query results
 def generate_html_table(columns, data, title, extra_info=""):
-    table_html = f"""
-    <html>
-      <body>
-        <p>{title}</p>  <!-- Title added here -->
-        <p>{extra_info}</p>
-        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: center;">
-          <thead>
-            <tr style="background-color: #f2f2f2; font-weight: bold;">
-    """
-    if not data:
-      table_html += "<html><body><p>No data for yesterday</p></body></html>"
-    else:
-      # Add headers
-      for column in columns:
-          table_html += f"<th style='border: 1px solid black;'>{column}</th>"
-      
-      table_html += "</tr></thead><tbody>"
+    try:
+        table_html = f"""
+        <html>
+        <body>
+            <p>{title}</p>  <!-- Title added here -->
+            <p>{extra_info}</p>
+            <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: center;">
+            <thead>
+                <tr style="background-color: #f2f2f2; font-weight: bold;">
+        """
+        if not data:
+            table_html += "<html><body><p>No data for yesterday</p></body></html>"
+        else:
+            # Add headers
+            for column in columns:
+                table_html += f"<th style='border: 1px solid black;'>{column}</th>"
+        
+        table_html += "</tr></thead><tbody>"
 
-      # Add rows
-      for row in data:
-          table_html += "<tr>"
-          for cell in row:
-              table_html += f"<td style='border: 1px solid black;'>{cell}</td>"
-          table_html += "</tr>"
-      
-      table_html += "</tbody></table></body></html>"
-    return table_html
+        # Add rows
+        for row in data:
+            table_html += "<tr>"
+            for cell in row:
+                table_html += f"<td style='border: 1px solid black;'>{cell}</td>"
+            table_html += "</tr>"
+        
+        table_html += "</tbody></table></body></html>"
+        return table_html
+    except Exception as e:
+        print(f'------------ error for {title}')
+        print(e)
+        print(f'------------ error for {title}')
+
 
 def bulk_update_query():
     # BULK MAPPING DATA QUERY 1
@@ -233,13 +239,22 @@ def send_email(subject, body, image_path_list:list=None):
     except Exception as e:
         print(f"Error sending email: {e}")
 
-def snowflake_data_generate_html(query:str, section_name:str, date_range_html_tag:str="", for_table:bool=False):
-    data_set, column_names = fetch_data_from_snowflake(query, return_columns=True) 
-    
+def snowflake_data_generate_html(query:str, section_name:str, date_range_html_tag:str="", for_table:bool=False, data_set=None, column_names=None):
+    if not data_set and not column_names:
+        data_set, column_names = fetch_data_from_snowflake(query, return_columns=True) 
+    # df = pd.DataFrame(data_set, columns=column_names)
+    # match = re.search(r'<h4>(.*?):<\/h4>', section_name).group(1).strip().replace(" ", "_")
+    # print('matchhhhhhhhh', match)
+    # csv_path = csv_main_path+f"{match}.csv"
+    # print('csv_path', match)
+    # df.to_csv(csv_path)
+    # print('=========', df)
+    # Read CSV
+
     if for_table:
-        print('-------------ddddddddddd------')
-        print(section_name)
-        print('-------------ddddddddddd------')
+        # print(f'-------------{section_name}------')
+        # print(data_set)
+        # print(f'-------------{section_name}------')
         table_html = generate_html_table(
                 column_names, 
                 data_set, 
@@ -275,17 +290,21 @@ def daily_dashboard_before_chart_table():
     # print('***************************** before exceute (query_active_user) ******************************************')
     # print(query_active_user)
     # print('***************************** before exceute (query_active_user) ******************************************')
-    table_html_active_user = snowflake_data_generate_html(query_active_user, "<h4>Yesterday's Active User:</h4>", for_table=True)[0]
-
-    # ------------------------------------------------------- Active User End ----------------------------------------------- #
+    data_set1 = fetch_data_from_snowflake(query_active_user) 
 
     query_avg_active_user = re.sub(r"\s*=\s*:\s*daterange", f"{daterange_replace_str_more_then_one_day}", obj_table_query.query_string_avg_active_user)
     # print('***************************** before exceute (query_avg_active_user) ******************************************')
     # print(query_avg_active_user)
     # print('***************************** before exceute (query_avg_active_user) ******************************************')
-    table_html_avg_active_user = snowflake_data_generate_html(query_avg_active_user, "<h4>Average Active User:</h4>", for_table=True)[0]
+    data_set2 = fetch_data_from_snowflake(query_avg_active_user) 
 
-    # ------------------------------------------------------- Average Active User End ----------------------------------------------- #
+    col_name = ("YESTERDAY'S ACTIVE USERS", f"AVERAGE ACTIVE USERS ({from_date} TO {to_date})")
+    data_s = ([data_set1[-1][-1], data_set2[-1][-1]],)
+
+    table_html_active_user_detail = snowflake_data_generate_html(query_active_user, "<h4>Active User Detail:</h4>", 
+                                                                 for_table=True, column_names=col_name, data_set=data_s)[0]
+
+    # ------------------------------------------------------- Active User Detail End ----------------------------------------------- #
 
     query_performer_for_selected_range = re.sub(r"\s*=\s*:\s*daterange", f"{daterange_replace_str_more_then_one_day}", obj_table_query.query_string_performer_for_selected_range)
     # print('***************************** before exceute (query_performer_for_selected_range) ******************************************')
@@ -295,9 +314,16 @@ def daily_dashboard_before_chart_table():
     table_html_performer_for_selected_range = snowflake_data_generate_html(query_performer_for_selected_range, "<h4>Star performer for manual efforts:</h4>", date_range_html_tag=date_range, for_table=True)[0]
 
     # ------------------------------------------------------- Performer For Selected Range ----------------------------------------------- #
-
-    set_of_html_table = table_html_daily_dashboard + table_html_manual_mapping + table_html_active_user \
-                        + table_html_avg_active_user + table_html_performer_for_selected_range
+    # print("----------------table_html_daily_dashboard--------------------")
+    # print(table_html_daily_dashboard)
+    # print("----------------table_html_manual_mapping--------------------")
+    # print(table_html_manual_mapping)
+    # print("----------------table_html_active_user_detail--------------------")
+    # print(table_html_active_user_detail)
+    # print("----------------table_html_performer_for_selected_range--------------------")
+    # print(table_html_performer_for_selected_range)
+    set_of_html_table = table_html_daily_dashboard + table_html_manual_mapping + \
+                        table_html_active_user_detail + table_html_performer_for_selected_range
 
     return set_of_html_table
 
